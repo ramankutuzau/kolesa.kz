@@ -154,6 +154,7 @@ def run_parse(search_city,user_percent,user_date):
         try:
             print(f'MESSAGE SEND TO TG ')
             send_to_tg(message_text)
+            # send_to_tg_2(message_text)
         except:
             print(f'!!! ERROR MESSAGE SENT to  ')
     else:
@@ -181,7 +182,7 @@ def main():
                 print(e)
                 time.sleep(random.uniform(1, 20))
 
-            time.sleep(random.uniform(1, 10))
+            time.sleep(random.uniform(1, 20))
             cnt+=1
         
             end_time = time.time()

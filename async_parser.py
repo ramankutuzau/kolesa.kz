@@ -5,7 +5,6 @@ import requests
 from time import sleep
 from datetime import datetime
 import re
-from fake_useragent import UserAgent
 import random
 
 url_list = [""]
@@ -17,12 +16,7 @@ async def send_to_tg(text):
         async with session.get(send_text) as response:
             return await response.text()
 
-async def send_to_tg_2(text):
-    send_text = 'https://api.telegram.org/bot' + '6742172622:AAFjGwKXB2ekCQKlBBp1iury0s-81XRlvO0' + \
-        '/sendMessage?chat_id=' + "5136898344" + '&parse_mode=HTML&text=' + text
-    async with ClientSession() as session:
-        async with session.get(send_text) as response:
-            return await response.text()
+
     
 async def search_cities_category(search_city):
     headers = {'User-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 OPR/104.0.0.0'}
@@ -174,7 +168,7 @@ async def run_parse(search_city,user_percent,user_date):
                 try:
                     # print(message_text)
                     await send_to_tg(message_text)
-                    await send_to_tg_2(message_text)
+                    # await send_to_tg_2(message_text)
                     print(f'MESSAGE SEND TO TG ')
                 except:
                     print(f'!!! ERROR MESSAGE SENT to  ')
